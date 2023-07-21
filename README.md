@@ -1,0 +1,1 @@
+# Demo project with some Python studies
