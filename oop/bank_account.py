@@ -27,6 +27,21 @@ class BankAccount:
         print(f"Owner: {self.__owner}")
         print(f"Current balance is ${self.__balance}")
 
+    def get_balance(self):
+        return self.__balance
+
+    def get_owner(self):
+        return self.__owner
+
+    def get_id(self):
+        return self.__account_id
+
+    def get_limit(self):
+        return self.__limit
+
+    def set_limit(self, limit):
+        self.__limit = limit
+
 
 if __name__ == "__main__":
     account = BankAccount(123, "Gabriel")
