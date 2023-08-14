@@ -38,12 +38,38 @@ class Series(TvShow):
         return f"{self.name} - {self.__seasons} - {self.likes}"
 
 
+'''
+    Python Data Model:
+    Commonly used -->
+        Initialization: __init__ (constructor)
+            Example: obj = MyObject()
+        Representation: __str__ (end user), __repr__ (logging)
+            Example: print(obj), str(obj), repr(obj)
+        Container, Sequence: __contains__, __iter__, __len__, __getitem__
+            Example: len(obj), item in obj, for i in obj, obj[2:3]
+        Numbers: __add__, __sub__, __mul__, __mod__
+            Example: obj + other_obj, obj * obj
+'''
+
+
 class Playlist:
 
     def __init__(self, name, tv_shows):
         self.__name = name
         self.__tv_shows = tv_shows
 
+    # Duck typing --> Behaves like a sequence/iterable
+    def __getitem__(self, item):
+        return self.__tv_shows[item]
+
+    def __len__(self):
+        return len(self.__tv_shows)
+
+    @property
+    def list(self):
+        return self.__tv_shows
+
+    @property
     def size(self):
         return len(self.__tv_shows)
 
@@ -68,5 +94,5 @@ if __name__ == '__main__':
 
     weekend_playlist = Playlist("Weekend", tv_shows)
 
-    for tv_show in tv_shows:
+    for tv_show in weekend_playlist:
         print(tv_show)
