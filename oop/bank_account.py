@@ -16,6 +16,12 @@ class BankAccount:
     def withdraw(self, amount):
         if self.__balance >= amount:
             self.__balance -= amount
+            return True
+        return False
+
+    def transfer(self, amount, target):
+        if self.withdraw(amount):
+            target.deposit(amount)
 
     def statement(self):
         print(f"Owner: {self.__owner}")
