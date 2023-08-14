@@ -1,8 +1,7 @@
-class Movie:
-    def __init__(self, name, year, duration):
+class TvShow:
+    def __init__(self, name, year):
         self.__name = name.title()
         self.__year = year
-        self.__duration = duration
         self.__likes = 0
 
     def like(self):
@@ -23,23 +22,16 @@ class Movie:
         self.__name = name.title()
 
 
-class Series:
+class Movie(TvShow):
+    def __init__(self, name, year, duration):
+        super().__init__(name, year)
+        self.__duration = duration
+
+
+class Series(TvShow):
     def __init__(self, name, year, seasons):
-        self.__name = name.title()
-        self.__year = year
+        super().__init__(name, year)
         self.__seasons = seasons
-        self.__likes = 0
-
-    def like(self):
-        self.__likes += 1
-
-    @property
-    def likes(self):
-        return self.__likes
-
-    @property
-    def name(self):
-        return self.__name
 
 
 if __name__ == '__main__':
