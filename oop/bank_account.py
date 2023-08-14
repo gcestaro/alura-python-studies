@@ -27,19 +27,24 @@ class BankAccount:
         print(f"Owner: {self.__owner}")
         print(f"Current balance is ${self.__balance}")
 
-    def get_balance(self):
+    @property
+    def balance(self):
         return self.__balance
 
-    def get_owner(self):
+    @property
+    def owner(self):
         return self.__owner
 
-    def get_id(self):
+    @property
+    def account_id(self):
         return self.__account_id
 
-    def get_limit(self):
+    @property
+    def limit(self):
         return self.__limit
 
-    def set_limit(self, limit):
+    @limit.setter
+    def limit(self, limit):
         self.__limit = limit
 
 
