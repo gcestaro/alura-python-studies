@@ -25,8 +25,8 @@ class Movie(TvShow):
         super().__init__(name, year)
         self.__duration = duration
 
-    def print(self):
-        print(f"{self.name} - {self.__duration} - {self.likes}")
+    def __str__(self):
+        return f"{self.name} - {self.__duration} - {self.likes}"
 
 
 class Series(TvShow):
@@ -34,8 +34,8 @@ class Series(TvShow):
         super().__init__(name, year)
         self.__seasons = seasons
 
-    def print(self):
-        print(f"{self.name} - {self.__seasons} - {self.likes}")
+    def __str__(self):
+        return f"{self.name} - {self.__seasons} - {self.likes}"
 
 
 if __name__ == '__main__':
@@ -49,4 +49,4 @@ if __name__ == '__main__':
     tv_shows = [avengers, breaking_bad]
 
     for tv_show in tv_shows:
-        tv_show.print()
+        print(tv_show)
