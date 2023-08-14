@@ -51,6 +51,12 @@ class Series(TvShow):
             Example: obj + other_obj, obj * obj
 '''
 
+'''
+    ABC: Abstract base classes
+    from collections.abc import MutableSequence
+    from numbers import Complex
+'''
+
 
 class Playlist:
 
