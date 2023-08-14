@@ -50,6 +50,10 @@ class BankAccount:
     def limit(self, limit):
         self.__limit = limit
 
+    @staticmethod
+    def bank_number():
+        return "001"
+
 
 if __name__ == "__main__":
     account = BankAccount(123, "Gabriel")
@@ -57,5 +61,7 @@ if __name__ == "__main__":
     account.deposit(100)
     account.withdraw(60)
     account.statement()
+
+    print(account.bank_number())
 
     account = None  # After this, the object is eligible to be picked up by Garbage Collector
