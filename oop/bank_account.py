@@ -14,10 +14,13 @@ class BankAccount:
         self.__balance += amount
 
     def withdraw(self, amount):
-        if self.__balance >= amount:
+        if self.__is_able_to_withdraw(amount):
             self.__balance -= amount
             return True
         return False
+
+    def __is_able_to_withdraw(self, amount):
+        return self.__balance + self.__limit >= amount
 
     def transfer(self, amount, target):
         if self.withdraw(amount):
