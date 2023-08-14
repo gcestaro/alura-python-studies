@@ -13,12 +13,10 @@ class TvShow:
 
     @property
     def name(self):
-        print("name getter called")
         return self.__name
 
     @name.setter
     def name(self, name):
-        print("name setter called")
         self.__name = name.title()
 
 
@@ -27,16 +25,28 @@ class Movie(TvShow):
         super().__init__(name, year)
         self.__duration = duration
 
+    def print(self):
+        print(f"{self.name} - {self.__duration} - {self.likes}")
+
 
 class Series(TvShow):
     def __init__(self, name, year, seasons):
         super().__init__(name, year)
         self.__seasons = seasons
 
+    def print(self):
+        print(f"{self.name} - {self.__seasons} - {self.likes}")
+
 
 if __name__ == '__main__':
     avengers = Movie("avengers - infinity war", 2018, 160)
-    print(avengers.name)
-
     breaking_bad = Series("breaking bad", 2008, 5)
-    print(breaking_bad.name)
+
+    avengers.like()
+    avengers.like()
+    breaking_bad.like()
+
+    tv_shows = [avengers, breaking_bad]
+
+    for tv_show in tv_shows:
+        tv_show.print()
