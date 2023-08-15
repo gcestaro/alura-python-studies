@@ -61,8 +61,8 @@ def begin_with_lists():
 
 if __name__ == '__main__':
     # begin_with_lists()
-    gabriel_account = BankAccount(1)
-    jessica_account = BankAccount(2)
+    gabriel_account = CheckingAccount(1)
+    jessica_account = CheckingAccount(2)
 
     accounts = [gabriel_account, jessica_account]
     gabriel_account.deposit(100)
@@ -74,7 +74,7 @@ if __name__ == '__main__':
     checking_account = CheckingAccount(1)
     checking_account.deposit(1000)
 
-    saving_account = CheckingAccount(1)
+    saving_account = SavingAccount(1)
     saving_account.deposit(1000)
 
     accounts = [checking_account, saving_account]

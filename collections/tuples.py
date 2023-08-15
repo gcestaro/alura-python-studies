@@ -7,8 +7,8 @@ from bank_account import BankAccount, CheckingAccount, SavingAccount
 """
 
 if __name__ == '__main__':
-    gabriel_account = BankAccount(1)
-    jessica_account = BankAccount(2)
+    gabriel_account = CheckingAccount(1)
+    jessica_account = CheckingAccount(2)
 
     accounts = [(1, "Gabriel", 100.0), (2, "Jessica", 150.0)]  # List of tuples
     print(accounts)
