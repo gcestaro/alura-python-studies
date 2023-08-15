@@ -18,6 +18,9 @@ class BankAccount(metaclass=ABCMeta):
         pass
 
     def __eq__(self, other):
+        if not isinstance(other, BankAccount):
+            return False
+
         return self._code == other.code
 
     def __str__(self):
