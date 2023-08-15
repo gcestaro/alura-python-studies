@@ -38,6 +38,29 @@ def iterating():
         print(key, value)
 
 
+def counting_with_dict(text):
+    global words_count_dict, word
+    words_count_dict = {}
+    for word in text.split():
+        until_now = words_count_dict.get(word, 0)  # words_count_dict[word] would fail the first attempt
+        words_count_dict[word] = until_now + 1
+    print(words_count_dict)
+
+
+def counting_with_defaultdict(text):
+    global words_count_dict, word
+    words_count_dict = defaultdict(int)
+    for word in text.split():
+        words_count_dict[word] += 1
+    print(words_count_dict)
+
+
+def couting_with_counter(text):
+    global words_count_dict
+    words_count_dict = Counter(text.split())
+    print(words_count_dict)
+
+
 if __name__ == '__main__':
     # creating_dictionaries()
     # iterating()
@@ -45,18 +68,6 @@ if __name__ == '__main__':
            " and i really like dogs i also play guitar"
     text = text.lower()
 
-    words_count_dict = {}
-    for word in text.split():
-        until_now = words_count_dict.get(word, 0)  # words_count_dict[word] would fail the first attempt
-        words_count_dict[word] = until_now + 1
-
-    print(words_count_dict)
-
-    words_count_dict = defaultdict(int)
-    for word in text.split():
-        words_count_dict[word] += 1
-
-    print(words_count_dict)
-
-    words_count_dict = Counter(text.split())
-    print(words_count_dict)
+    # counting_with_dict(text)
+    # counting_with_defaultdict(text)
+    couting_with_counter(text)
