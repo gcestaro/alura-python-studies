@@ -13,6 +13,10 @@ class BankAccount(metaclass=ABCMeta):
     def code(self):
         return self._code
 
+    @property
+    def balance(self):
+        return self._balance
+
     @abstractmethod
     def apply_taxes(self):
         pass
@@ -24,7 +28,10 @@ class BankAccount(metaclass=ABCMeta):
         return self._code == other.code
 
     def __str__(self):
-        return f"[>>Code {self._code} Balance {self._balance}]"
+        return f"[>>Code {self._code} Balance {self._balance}<<]"
+
+    def __lt__(self, other):
+        return self._code < other.code
 
 
 class CheckingAccount(BankAccount):
