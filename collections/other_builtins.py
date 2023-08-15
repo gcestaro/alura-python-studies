@@ -42,7 +42,10 @@ def _sorted():
     for account in sorted(accounts):
         print(account)
 
-    for account in sorted(accounts, key=attrgetter("_balance")):
+    for account in sorted(accounts, key=attrgetter("_balance", "_code")):
+        print(account)
+
+    for account in sorted(accounts, key=attrgetter("_code")):
         print(account)
 
 

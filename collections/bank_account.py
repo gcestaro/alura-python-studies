@@ -1,6 +1,8 @@
 from abc import ABCMeta, abstractmethod
+from functools import total_ordering
 
 
+@total_ordering
 class BankAccount(metaclass=ABCMeta):
     def __init__(self, code):
         self._code = code
@@ -31,6 +33,8 @@ class BankAccount(metaclass=ABCMeta):
         return f"[>>Code {self._code} Balance {self._balance}<<]"
 
     def __lt__(self, other):
+        if self._balance != other.balance:
+            return self._balance < other.balance
         return self._code < other.code
 
 
