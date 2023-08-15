@@ -1,4 +1,4 @@
-from bank_account import BankAccount
+from bank_account import BankAccount, CheckingAccount, SavingAccount
 
 """
     Tuples:
@@ -19,3 +19,4 @@ if __name__ == '__main__':
     print(accounts_report)
     gabriel_account.deposit(100)  # Objects are mutable
     # accounts_report[0] = gabriel_account  # error, tuples are immutable
+

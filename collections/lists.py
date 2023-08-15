@@ -1,7 +1,7 @@
 """
     Python Datastructures doc: https://docs.python.org/3/tutorial/datastructures.html
 """
-from bank_account import BankAccount
+from bank_account import BankAccount, CheckingAccount, SavingAccount
 
 """
     Lists:
@@ -69,4 +69,15 @@ if __name__ == '__main__':
     jessica_account.deposit(200)
 
     for account in accounts:
+        print(account)
+
+    checking_account = CheckingAccount(1)
+    checking_account.deposit(1000)
+
+    saving_account = CheckingAccount(1)
+    saving_account.deposit(1000)
+
+    accounts = [checking_account, saving_account]
+    for account in accounts:
+        account.apply_taxes()
         print(account)
