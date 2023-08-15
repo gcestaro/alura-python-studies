@@ -32,6 +32,11 @@ class TestClass:
     def employee_without_bonus(self):
         return Employee(TEST_EMPLOYEE_NAME, TEST_EMPLOYEE_DATE_OF_BIRTH, 10_001)
 
+    # Not needed, check .coverage on project's root folder
+    # def test_str(self, employee):
+    #     expected = "Employee: Unit Test, age: 23, salary: $1000"
+    #     assert employee.__str__() == expected
+
     @mark.age
     def test_when_age_05_10_2000_should_return_23(self, employee):
         # Given (context)
@@ -47,6 +52,12 @@ class TestClass:
     def test_when_name_unit_test_return_test(self, employee):
         expected = "Test"
         result = employee.lastname()
+        assert result == expected
+
+    @mark.naming
+    def test_when_name_unit_test_return_test(self, employee):
+        expected = "Unit Test"
+        result = employee.name
         assert result == expected
 
     @mark.decrease_salary

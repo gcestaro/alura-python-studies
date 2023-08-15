@@ -37,3 +37,6 @@ class Employee:
         if limit_to_receive_bonus > 1000:
             raise ValueError(f"Bonus is not allowed for the salary {self.salary}")
         return limit_to_receive_bonus
+
+    def __str__(self):
+        return f"Employee: {self._name}, age: {self.age()}, salary: ${self._salary}"
