@@ -18,3 +18,22 @@ class Employee:
     def age(self):
         year_of_birth = self._date_of_birth.split("/")[-1]
         return date.today().year - int(year_of_birth)
+
+    def lastname(self):
+        return self._name.split(" ")[-1]
+
+    def decrease_salary(self):
+        if self.is_director() and self._salary >= 100_000:
+            self._salary *= 0.9
+
+    def is_director(self):
+        directors_lastname = ["Bragança", "Windsor", "Bourbon",
+                              "Yamato", "Al Saud", "Khan",
+                              "Tudor", "Ptolomeu"]
+        return self.lastname() in directors_lastname
+
+    def calculate_bonus(self):
+        limit_to_receive_bonus = self._salary * 0.1
+        if limit_to_receive_bonus > 1000:
+            raise ValueError(f"Bonus is not allowed for the salary {self.salary}")
+        return limit_to_receive_bonus
