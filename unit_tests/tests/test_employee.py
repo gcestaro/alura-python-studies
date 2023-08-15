@@ -1,3 +1,5 @@
+import sys
+
 import pytest
 from pytest import mark
 
@@ -5,6 +7,10 @@ from unit_tests.main.employee import Employee
 
 TEST_EMPLOYEE_NAME = "Unit Test"
 TEST_EMPLOYEE_DATE_OF_BIRTH = "05/10/2000"
+
+"""
+    More on markers: https://docs.pytest.org/en/7.1.x/how-to/mark.html#mark
+"""
 
 
 class TestClass:
@@ -61,3 +67,15 @@ class TestClass:
         expected = 100
         result = employee.calculate_bonus()
         assert result == expected
+
+    @mark.skip(reason="Ignore this for now")
+    def test_ignored(self):
+        pass
+
+    @mark.skipif(sys.version_info < (3, 10), reason="Python 3.10 or higher required")
+    def test_ignored_if(self):
+        pass
+
+    @mark.xfail
+    def test_should_fail(self):
+        raise Exception("This will fail")
