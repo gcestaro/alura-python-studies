@@ -1,5 +1,9 @@
 [run]
+source = ./unit_tests/main
 
 [report]
 exclude_lines =
     def __str__
+
+[html]
+directory = coverage_html_report
